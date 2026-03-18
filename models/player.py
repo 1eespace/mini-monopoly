@@ -8,8 +8,8 @@ Using dataclass
 
     pay()
     receive()
+    move(): depends on dice roll
 
-    move: depends on dice roll
     turn: static but logic
 """
 from dataclasses import dataclass, field
@@ -30,3 +30,20 @@ class Player:
         
     def receive(self, amount: int) -> None:
         self.money += amount
+
+    def move(self, dice_roll: int, total_tiles: int) -> bool:
+        """
+        Moves the player and returns True if they passed GO tile
+        idx 0 - 8; total 9 tiles (with GO)
+        ex> current idx is 7 but dice is 2
+        new current idx is 9, but don't have and should return to GO
+        7 -> 8 -> GO 
+        Formula: (current + dice roll) % total tiles 
+        """
+        old_position = self.position
+        self.position = (self.position + dice_roll) % total_tiles 
+
+        # Wrapped: if the new position is smaller than the old position (not GO)
+        # First round GO: They don't get paid ($1)
+        return self.position < old_position
+        
