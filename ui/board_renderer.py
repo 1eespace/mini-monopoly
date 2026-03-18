@@ -19,17 +19,18 @@ def build_tiles(json_file: str = "board.json") -> list[Tile]:
 
     # Data from board.json and TILE_POSITION are 9 (0-8)
     if len(board_data) != len(TILE_POSITION):
-        raise ValueError("Board data does not match tile layout")
+        raise ValueError("Board data does not match TILE_POSITION configuration.")
 
     tiles = []
 
     for index, tile_data in enumerate(board_data):
         colour_name = tile_data.get("colour")
-        position = TILE_POSITION[index]
+        coords = TILE_POSITION[index]
 
+        # Initialise the Tile object with attributes
         tile = Tile(
             index=index,
-            x1=position[0], y1=position[1], x2=position[2], y2=position[3],
+            x1=coords[0], y1=coords[1], x2=coords[2], y2=coords[3],
             name=tile_data.get("name", ""),
             price=tile_data.get("price"),
             colour=colour_name,
