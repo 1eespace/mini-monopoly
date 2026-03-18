@@ -19,9 +19,18 @@ TILE_POSITION = {
     8: (500, 340, 660, 500),
 }
 
+# Player Colour
+PLAYER_COLOUR = {
+    "Peter": "#FEA8FE",      
+    "Billy": "#FFB300",      
+    "Charlotte": "#7DF0E2",  
+    "Sweedal": "#938FEC"     
+}
+
+# Property Colour 
 PROPERTY_COLOUR = {
-    "Brown": "#8d6e63",
-    "Red": "#f25f5c",
+    "Brown": "#611f07",
+    "Red": "#ff0400",
     "Green": "#4caf50",
     "Blue": "#42a5f5",
 }
@@ -34,4 +43,4 @@ TITLE_COLOUR="#3d405b"
 SUBTITLE_COLOUR="#6b705c"
 
 TEXT_BLACK="#222222"
-PRICE_COLOUR="#ff0015"
+PRICE_COLOUR="#010601"

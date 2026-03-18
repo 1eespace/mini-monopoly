@@ -17,5 +17,11 @@ class Tile:
 
     @property
     def mid_x(self) -> float:
-        # Centre of tile 
+        # Centre of tile
         return (self.x1 + self.x2) / 2
+    
+    @property
+    def mid_y(self) -> float:
+        # Centre of tile
+        return (self.y1 + self.y2) / 2
+    
