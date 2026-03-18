@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from ui.style_sheet import TILE_POSITION, PROPERTY_COLOUR
-
+from models.tile import Tile
 
 def load_board_data(json_file: str = "board.json") -> list[dict]:
     # Load board data from json file
@@ -13,8 +13,7 @@ def load_board_data(json_file: str = "board.json") -> list[dict]:
 
     return data
 
-
-def build_tiles(json_file: str = "board.json") -> list[dict]:
+def build_tiles(json_file: str = "board.json") -> list[Tile]:
     # Match board.json tiles with TILE_LAYOUTS by index
     board_data = load_board_data(json_file)
 
@@ -26,58 +25,19 @@ def build_tiles(json_file: str = "board.json") -> list[dict]:
 
     for index, tile_data in enumerate(board_data):
         colour_name = tile_data.get("colour")
-        # PROPERTY_COLOUR from style_sheet.py
-        # Convert colour name to hex code for drawing
-        colour_hex = PROPERTY_COLOUR.get(colour_name) if colour_name else None
+        position = TILE_POSITION[index]
 
-        tile = {
-            # Tile position from config (style_sheet.py)
-            "index": index,
-            "x1": TILE_POSITION[index][0],
-            "y1": TILE_POSITION[index][1],
-            "x2": TILE_POSITION[index][2],
-            "y2": TILE_POSITION[index][3],
-
-            # Tile info from JSON; name, price, colour, type (property or GO)
-            "name": tile_data.get("name", ""),
-            "price": tile_data.get("price"),
-            "colour": colour_name,
-            "colour_hex": colour_hex,
-            "type": tile_data.get("type", ""),
-        }
-
+        tile = Tile(
+            index=index,
+            x1=position[0], y1=position[1], x2=position[2], y2=position[3],
+            name=tile_data.get("name", ""),
+            price=tile_data.get("price"),
+            colour=colour_name,
+            colour_hex=PROPERTY_COLOUR.get(colour_name) if colour_name else None,
+            tile_type=tile_data.get("type", "")
+        )
+        
         tiles.append(tile)
 
     return tiles
 
-"""
-build tiles output;
-
-[
-    {
-        "index": 0,
-        "x1": 20,
-        "y1": 500,
-        "x2": 660,
-        "y2": 670,
-        "name": "GO",
-        "price": None,
-        "colour": None,
-        "colour_hex": None,
-        "type": "go"
-    },
-    {
-        "index": 1,
-        "x1": 20,
-        "y1": 340,
-        "x2": 180,
-        "y2": 500,
-        "name": "The Burvale",
-        "price": 1,
-        "colour": "Brown",
-        "colour_hex": "#8d6e63",
-        "type": "property"
-    }
-]
-
-"""
