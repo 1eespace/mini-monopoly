@@ -72,7 +72,7 @@ class BoardView(tk.Canvas):
         player_names = ["Peter", "Billy", "Charlotte", "Sweedal"]
 
         # Offsets to prevent players from overlapping on the same tile
-        offsets = [(-30, -25), (30, -25), (-30, 25), (30, 25)]
+        offsets = [(-40, -15), (40, -15), (-40, 15), (40, 15)]
 
         for i, player in enumerate(players):
             # Get tile and colour info
@@ -108,5 +108,3 @@ class BoardView(tk.Canvas):
                         font=("Arial", 9, "bold"),
                         tags="player_marker"
             )
-
-

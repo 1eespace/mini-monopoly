@@ -80,7 +80,7 @@ class TurnManager:
             "money": player.money,
             "passed_go": passed_go,
             "bankrupt": False,
-            "game_over": False,
+            "game_over": False            
         }
 
         self.next_player()
