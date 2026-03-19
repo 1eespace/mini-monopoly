@@ -14,13 +14,17 @@ Using dataclass
 """
 from dataclasses import dataclass, field
 
+# Const
+STARTING_MONEY = 16
+
 @dataclass
 class Player: 
     name: str
-    money: int = 16
+    money: int = STARTING_MONEY
     position: int = 0
     is_bankrupt: bool = False
     # list and mutable value; objects of properties owned by the player
+    # Owner; Occupied 
     properties: list = field(default_factory=list)
 
     def pay(self, amount: int) -> None:

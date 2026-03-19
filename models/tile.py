@@ -1,7 +1,8 @@
 from dataclasses import dataclass
-from typing import Optional
+from models.player import Player
 
-@dataclass(frozen=True)
+# Mutable
+@dataclass
 class Tile:
     index: int
     name: str
@@ -10,10 +11,11 @@ class Tile:
     x2: int
     y2: int
     tile_type: str
+    owner: Player | None = None
     # For the board.json extension
-    price: Optional[int] = None
-    colour: Optional[str] = None
-    colour_hex: Optional[str] = None
+    price: int | None = None
+    colour: str | None = None
+    colour_hex: str | None = None
 
     @property
     def mid_x(self) -> float:

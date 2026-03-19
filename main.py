@@ -13,6 +13,8 @@ def main():
     # Set window size 
     root.geometry("900x720")
     
+    # root.resizable(False, False)
+
     # Board view (left side) => Pass 'root' as the parent
     board = BoardView(root, json_file="board.json")
     board.pack(side="left", padx=10, pady=10)
