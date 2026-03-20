@@ -108,3 +108,30 @@ class BoardView(tk.Canvas):
                         font=("Arial", 9, "bold"),
                         tags="player_marker"
             )
+        
+    # Display the owner (player who occupied/bought) name
+    # NO need refresh/delete during the game
+    def display_owner_name (self, tiles: list) -> None:
+        for tile in tiles: 
+            # GO tile is not property
+            if tile.tile_type == "property" and tile.owner is not None:
+
+                # Specific tag for preventing duplicate display
+                tag = f"owner_tile_{tile.index}"
+
+                # Match player's colour 
+                owner_colour = PLAYER_COLOUR.get(tile.owner.name, TEXT_BLACK)
+
+                if not self.find_withtag(tag):
+                    self.create_text(
+                        tile.mid_x, 
+                        tile.mid_y + 18,  
+                        text=f"Owner: {tile.owner.name}",
+                        fill=owner_colour, 
+                        font=("Arial", 8, "bold"),
+                        tags=(tag, "static_owner") 
+                )
+    
+    # When the GAME RESET should clear the owner labels
+    def clear_owner_labels(self) -> None:
+        self.delete("static_owner")

@@ -79,10 +79,14 @@ class GameUIControls(tk.Frame):
         self.btn_reset = tk.Button(self, text="Reset Game", width=15, command=self.reset_game)
         self.btn_reset.pack(pady=5)
 
-    # REFRESH/RESET
+    # REFRESH/UPDATE
     # Sync the visual board with the current state of player
     def refresh_board(self) -> None:
+        # Update the current player position
         self.board.update_player_position(self.players)
+
+        # Update the owner label
+        self.board.display_owner_name(self.turn_manager.tiles)
 
         # Update the turn indicator, if the game is still active
         if not self.turn_manager.is_game_over():
@@ -166,6 +170,9 @@ class GameUIControls(tk.Frame):
     def reset_game(self) -> None:
         self.turn_manager.reset()
         self.dice_handler = None
+
+        # Clear the owner labels 
+        self.board.clear_owner_labels()
 
         self.status_label.config(text="Game Reset.", fg="blue")
         # First player: Peter
