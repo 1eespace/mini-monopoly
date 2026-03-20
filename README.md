@@ -1,10 +1,11 @@
 # Mini Monopoly Game
 
-A deterministic Monopoly game simulator built with Python and Tkinter. 
+A deterministic Monopoly game simulator built with Python and Tkinter.
 
 This application simulates player movement, property acquisition, and rent logic based on predefined dice rolls from JSON files.
 
 ## Getting Started
+
 ### Prerequisites
 
 - Python 3.10+
@@ -15,6 +16,7 @@ This application simulates player movement, property acquisition, and rent logic
 
 1. Clone the repository to your local
 2. Install the required Python packages:
+
 ```bash
 pip3 install tk webcolors
 ```
@@ -22,6 +24,7 @@ pip3 install tk webcolors
 ### Execution
 
 To start the simulator, run the `main.py` script:
+
 ```bash
 python3 main.py
 ```
@@ -34,7 +37,7 @@ The simulation follows these specific rules:
 
 - **Players:** Four players (Peter, Billy, Charlotte, Sweedal) take turns in a fixed order
 - **Starting Budget:** Each player starts with $16
-- **GO Space:**
+- **GO Tile:**
   - Everyone starts on GO
   - Passing GO rewards $1 (excluding the initial starting position)
 - **Property Rules:**
@@ -46,6 +49,7 @@ The simulation follows these specific rules:
 - **Simplification:** No chance cards, jail, or stations are included
 
 ## Project Structure
+
 ```
 .
 ├── logic/                  # Game logics and turn management
