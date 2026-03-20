@@ -1,4 +1,4 @@
-#  MINI-MONOPOLY StyleSheet
+# MINI-MONOPOLY StyleSheet
 
 # PLAYER MARKER COLOUR
 PLAYER_COLOUR = {
@@ -6,14 +6,6 @@ PLAYER_COLOUR = {
     "Billy": "#FFB300",      
     "Charlotte": "#7DF0E2",  
     "Sweedal": "#938FEC"     
-}
-
-# PROPERTY COLOUR
-PROPERTY_COLOUR = {
-    "Brown": "#611f07",
-    "Red": "#ff0400",
-    "Green": "#4caf50",
-    "Blue": "#0011ff",
 }
 
 # COLOUR

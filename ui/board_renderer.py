@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
-from ui.style_sheet import PROPERTY_COLOUR
 from models.tile import Tile
+from ui.tile_colour import colour_mapping
 
 def load_board_data(json_file: str) -> list[dict]:
     path = Path(json_file)
@@ -15,7 +15,7 @@ def load_board_data(json_file: str) -> list[dict]:
 def compute_tile_positions(number_of_tiles: int, board_size: int = 680) -> dict[int, tuple]:
     """
         Layout:
-            - index 0 is always GO: Fixed at the bottom-left corner
+            - Type=GO: Fixed at the bottom-left corner
             - Remaining tiles wrap clockwise: left, top , right, and bottom
             - Tiles are distributed as evenly as possible across 4 sides
     """
@@ -107,6 +107,9 @@ def build_tiles(json_file: str = "board.json", board_size: int = 680) -> list[Ti
     board_data = load_board_data(json_file)
     positions  = compute_tile_positions(len(board_data), board_size)
 
+    # Colour Hex (tile_colour.py)
+    colour_map = colour_mapping(board_data) 
+
     # DEBUG
     print(f"board_data count: {len(board_data)}")
     print(f"positions count: {len(positions)}")
@@ -120,14 +123,14 @@ def build_tiles(json_file: str = "board.json", board_size: int = 680) -> list[Ti
             x1y1 leftTop and x2y2 rightBottom
         """ 
         x1, y1, x2, y2 = positions[index]
-
+        colour_name = tile_data.get("colour")
+        
         tiles.append(Tile(
             index=index,
             x1=x1, y1=y1, x2=x2, y2=y2,
             name=tile_data.get("name", ""),
             price=tile_data.get("price"),
-            colour=tile_data.get("colour"),
-            colour_hex=None,  
+            colour_hex=colour_map.get(colour_name) if colour_name else None,
             tile_type=tile_data.get("type", "")
         ))
 
