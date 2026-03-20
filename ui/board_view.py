@@ -43,7 +43,7 @@ class BoardView(tk.Canvas):
                 outline=""
             )
 
-        # Render the tile name (Title)
+        # Render the tile name 
         self.create_text (
             tile.mid_x, tile.y1 + 45,
             text=tile.name,
@@ -73,7 +73,7 @@ class BoardView(tk.Canvas):
 
         # Offsets to prevent players from overlapping on the same tile
         offsets = [(-40, -15), (40, -15), (-40, 15), (40, 15)]
-
+        
         for i, player in enumerate(players):
             # Get tile and colour info
             current_tile = self.tiles[player.position]

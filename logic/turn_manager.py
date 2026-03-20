@@ -4,15 +4,12 @@ from models.tile import Tile
 GO_MONEY = 1
 STARTING_MONEY = 16
 
-
 class TurnManager:
     def __init__(self, players: list[Player], tiles: list[Tile]):
         # All players in fixed Order
         self.players = players
-
         # Board tiles
         self.tiles = tiles
-
         # Index of the player whose turn is currently active
         self.current_player_index = 0
 
@@ -48,8 +45,8 @@ class TurnManager:
             }
             return result
 
+        # Pass GO Tile
         passed_go = player.move(dice_roll, len(self.tiles))
-
         if passed_go:
             player.receive(GO_MONEY)
 
@@ -86,7 +83,7 @@ class TurnManager:
         self.next_player()
         return result
 
-    # GO: Non-property tile 
+    # GO: NON PROPERTY TILE
     def resolve_tile(self, player: Player, tile: Tile) -> str:
         if tile.tile_type != "property":
             return f"landed on {tile.name}"
@@ -135,17 +132,19 @@ class TurnManager:
         # Owner must own every tile in that colour
         return all(tile.owner == owner for tile in same_colour_tiles)
 
-
+    # Get the Winner
     def get_winner(self) -> str | list[str]:
-        # Winner is the player with the highest money among all players
+        # Winner: holding highest money balance among all players
         highest_money_amount = max(player.money for player in self.players)
 
+        # Collect all player(s) who have the highest balance 
         winners = [
             player.name
             for player in self.players
             if player.money == highest_money_amount
         ]
 
+        # 1 Winner: single player name, otherwise return list
         return winners[0] if len(winners) == 1 else winners
 
     def reset(self) -> None:

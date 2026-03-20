@@ -10,6 +10,7 @@ class Tile:
     y1: int
     x2: int
     y2: int
+    # Unique
     tile_type: str
     owner: Player | None = None
     # For the board.json extension

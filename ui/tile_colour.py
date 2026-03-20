@@ -6,6 +6,7 @@ def colour_mapping(board_data: list[dict]) -> dict[str, str | None]:
     colour_map = {}
 
     for tile in board_data:
+        # Read colour data from the json file
         colour_name = tile.get("colour")
         if colour_name and colour_name not in colour_map:
             try:
