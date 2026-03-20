@@ -1,4 +1,6 @@
-#  OVerall Board(Tile) StyleSheet
+#  MINI-MONOPOLY StyleSheet
+
+# TILE COORDINATES
 """
 Specific Position; Each tile coordinates
 
@@ -6,7 +8,6 @@ Python Tkinter: (x1, y1, x2, y2) Dictionary
 x1y1 leftTop and x2y2 rightBottom
 
 """ 
-
 TILE_POSITION = {
     0: (20, 500, 660, 670),
     1: (20, 340, 180, 500),
@@ -19,7 +20,7 @@ TILE_POSITION = {
     8: (500, 340, 660, 500),
 }
 
-# Player Colour
+# PLAYER MARKER COLOUR
 PLAYER_COLOUR = {
     "Peter": "#FEA8FE",      
     "Billy": "#FFB300",      
@@ -27,7 +28,7 @@ PLAYER_COLOUR = {
     "Sweedal": "#938FEC"     
 }
 
-# Property Colour 
+# PROPERTY COLOUR
 PROPERTY_COLOUR = {
     "Brown": "#611f07",
     "Red": "#ff0400",
@@ -35,10 +36,10 @@ PROPERTY_COLOUR = {
     "Blue": "#42a5f5",
 }
 
+# COLOUR
 BOARD_BG="#f7f3e9"
 TILE_FILL="#fffaf2"
 TILE_OUTLINE="#6b705c"
-
 TITLE_COLOUR="#3d405b"
 SUBTITLE_COLOUR="#6b705c"
 TEXT_BLACK="#000000"

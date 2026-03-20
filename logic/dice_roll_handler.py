@@ -15,7 +15,7 @@ class DiceRollHandler:
         path = Path(json_file)
         return json.loads(path.read_text(encoding="utf-8"))
     
-    # Return; True is there are still have dice rolls values
+    # Return True is there are still have dice rolls values
     def has_next_roll(self) -> bool:
         return self.current_index < len(self.rolls)
     
@@ -28,7 +28,7 @@ class DiceRollHandler:
         self.current_index += 1
         return roll
     
-    # RESET dice roll sequence & if new json file loaded; RELOAD
+    # RESET/ RELOAD: dice roll sequence & new json file selected
     def reset(self, json_file: str | None = None) -> None:
         if json_file is not None:
             self.json_file = json_file

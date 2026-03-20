@@ -23,8 +23,8 @@ class Player:
     money: int = STARTING_MONEY
     position: int = 0
     is_bankrupt: bool = False
-    # list and mutable value; objects of properties owned by the player
-    # Owner; Occupied 
+    # list and mutable value: objects of properties owned by the player
+    # Occupied by player (owner)
     properties: list = field(default_factory=list)
 
     def pay(self, amount: int) -> None:
@@ -47,7 +47,7 @@ class Player:
         old_position = self.position
         self.position = (self.position + dice_roll) % total_tiles 
 
-        # Wrapped: if the new position is smaller than the old position (not GO)
+        # BOARD WRAPPED: if the new position is smaller than the old position (not GO)
         # First round GO: They don't get paid ($1)
         return self.position < old_position
         

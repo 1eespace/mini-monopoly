@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from models.player import Player
 
-# Mutable
+# MUTABLE
 @dataclass
 class Tile:
     index: int
@@ -19,11 +19,11 @@ class Tile:
 
     @property
     def mid_x(self) -> float:
-        # Centre of tile
+        # Centre of x coord 
         return (self.x1 + self.x2) / 2
     
     @property
     def mid_y(self) -> float:
-        # Centre of tile
+        # Centre of y coord
         return (self.y1 + self.y2) / 2
     

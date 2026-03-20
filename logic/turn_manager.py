@@ -24,7 +24,7 @@ class TurnManager:
     def next_player(self) -> None:
         self.current_player_index = (self.current_player_index + 1) % len(self.players)
 
-    # Game ends; bankrupt
+    # GAME END: BANKRUPT
     def is_game_over(self) -> bool:
         # Game ends immediately if any player becomes bankrupt
         return any(player.is_bankrupt for player in self.players)
@@ -56,7 +56,7 @@ class TurnManager:
         landed_tile = self.tiles[player.position]
         action = self.resolve_tile(player, landed_tile)
 
-        # If this turn caused bankruptcy => END 
+        # THE END: If this turn caused bankruptcy
         if player.is_bankrupt:
             result = {
                 "player": player.name,
@@ -86,7 +86,7 @@ class TurnManager:
         self.next_player()
         return result
 
-    # Non-property tile (GO)
+    # GO: Non-property tile 
     def resolve_tile(self, player: Player, tile: Tile) -> str:
         if tile.tile_type != "property":
             return f"landed on {tile.name}"
@@ -113,7 +113,7 @@ class TurnManager:
         # Pay rent to another player
         rent = tile.price
 
-        # Double rent if owner has full colour set
+        # Double rent if owner has full colour (x 2)
         if tile.colour is not None and self.owner_has_full_colour(tile.owner, tile.colour):
             rent *= 2
 
