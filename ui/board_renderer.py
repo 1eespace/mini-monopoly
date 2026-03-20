@@ -4,9 +4,12 @@ from ui.style_sheet import PROPERTY_COLOUR
 from models.tile import Tile
 
 def load_board_data(json_file: str) -> list[dict]:
-    # Load board data from json file
-    with Path(json_file).open("r", encoding="utf-8") as f:
-        return json.load(f)
+    path = Path(json_file)
+    # Raise error if board file does not exist
+    if not path.exists():
+        raise FileNotFoundError(f"Board file not found: {path}")
+    
+    return json.loads(path.read_text(encoding="utf-8"))
 
 # Extensibility for the Tile (No TILE_POSITION Used)
 def compute_tile_positions(number_of_tiles: int, board_size: int = 680) -> dict[int, tuple]:

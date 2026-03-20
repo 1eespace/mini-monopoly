@@ -13,6 +13,10 @@ class DiceRollHandler:
     # Load data from rolls_1.json / 2.json
     def load_rolls(self, json_file: str) -> list[int]:
         path = Path(json_file)
+        # Raise error if the file does not exist
+        if not path.exists():
+            raise FileNotFoundError(f"Dice roll file not found: {path}")
+        
         return json.loads(path.read_text(encoding="utf-8"))
     
     # Return True is there are still have dice rolls values
