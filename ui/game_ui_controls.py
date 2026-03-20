@@ -6,7 +6,7 @@ from models.player import Player
 from logic.dice_roll_handler import DiceRollHandler
 from logic.turn_manager import TurnManager
 from ui.board_view import BoardView
-from ui.style_sheet import TEXT_BLACK
+from ui.style_sheet import TEXT_BLACK, TEXT_RED, TEXT_PURPLE
 
 """
     Handles the side control panel of the game:
@@ -55,7 +55,7 @@ class GameUIControls(tk.Frame):
         self.status_label = tk.Label(
             self,
             text="Game Ready",
-            fg=TEXT_BLACK,
+            fg=TEXT_RED,
             wraplength=180,
             justify="left"
         )
@@ -65,19 +65,19 @@ class GameUIControls(tk.Frame):
         self.turn_label = tk.Label(
             self,
             text="Current Turn: Peter",
-            font=("Arial", 10, "bold")
+            font=("Arial", 12, "bold")
         )
         self.turn_label.pack(pady=5)
 
         # Control Buttons; Start Game, Next Turn, and Reset Game
-        self.btn_start = tk.Button(self, text="Start Game", width=15, command=self.start_game)
-        self.btn_start.pack(pady=5)
+        self.btn_start = tk.Button(self, text="Start Game", width=18, height=3, command=self.start_game)
+        self.btn_start.pack(pady=8)
 
-        self.btn_next = tk.Button(self, text="Next Turn", width=15, state="disabled", command=self.next_turn)
-        self.btn_next.pack(pady=5)
+        self.btn_next = tk.Button(self, text="Next Turn", width=18, height=3, state="disabled", command=self.next_turn)
+        self.btn_next.pack(pady=8)
 
-        self.btn_reset = tk.Button(self, text="Reset Game", width=15, command=self.reset_game)
-        self.btn_reset.pack(pady=5)
+        self.btn_reset = tk.Button(self, text="Reset Game", width=18, height=3, command=self.reset_game)
+        self.btn_reset.pack(pady=8)
 
     # REFRESH/UPDATE
     # Sync the visual board with the current state of player
@@ -104,8 +104,8 @@ class GameUIControls(tk.Frame):
 
         # Update UI status label
         self.status_label.config(
-            text="Game started.\nClick 'Next Turn' to play.",
-            fg="green"
+            text="Game started :) \nClick 'Next Turn' to play!",
+            fg=TEXT_PURPLE
         )
 
         # Toggle buttons states
@@ -117,7 +117,7 @@ class GameUIControls(tk.Frame):
     # Execute a single turn based on the next value
     def next_turn(self) -> None:
         if self.dice_handler is None:
-            self.status_label.config(text="Please start the game first!", fg="red")
+            self.status_label.config(text="Please start the game first!", fg=TEXT_RED)
             return
 
         # Check if have remaining moves in the json file
@@ -125,7 +125,7 @@ class GameUIControls(tk.Frame):
             winner = self.turn_manager.get_winner()
             self.status_label.config(
                 text=f"No more dice rolls.\nWinner: {winner}",
-                fg="purple"
+                fg=TEXT_PURPLE
             )
 
             # Toggle buttons states
@@ -158,13 +158,13 @@ class GameUIControls(tk.Frame):
         if result["game_over"]:
             winner = self.turn_manager.get_winner()
             status_text += f"\n\nGame Over!\nWinner: {winner}"
-            self.status_label.config(text=status_text, fg="red")
+            self.status_label.config(text=status_text, fg=TEXT_RED)
             self.btn_next.config(state="disabled")
             self.btn_start.config(state="normal")
             self.turn_label.config(text="Current Turn: -")
             return
 
-        self.status_label.config(text=status_text, fg="black")
+        self.status_label.config(text=status_text, fg=TEXT_BLACK)
 
     # Clear the game state and restores to the initial UI
     def reset_game(self) -> None:
@@ -174,7 +174,7 @@ class GameUIControls(tk.Frame):
         # Clear the owner labels 
         self.board.clear_owner_labels()
 
-        self.status_label.config(text="Game Reset.", fg="blue")
+        self.status_label.config(text="Game Reset", fg=TEXT_RED)
         # First player: Peter
         self.turn_label.config(text="Current Turn: Peter")
 

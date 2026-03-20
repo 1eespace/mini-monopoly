@@ -1,7 +1,7 @@
 import tkinter as tk
 from ui.board_renderer import build_tiles
 from ui.style_sheet import (
-    BOARD_BG, TILE_FILL, TILE_OUTLINE, TITLE_COLOUR, TEXT_BLACK, PRICE_COLOUR, PLAYER_COLOUR
+    BOARD_BG, TILE_FILL, TILE_OUTLINE, TEXT_BLACK, PRICE_COLOUR, PLAYER_COLOUR
 )
 from models.tile import Tile
 
@@ -47,7 +47,7 @@ class BoardView(tk.Canvas):
         self.create_text (
             tile.mid_x, tile.y1 + 45,
             text=tile.name,
-            fill=TITLE_COLOUR,
+            fill=TEXT_BLACK,
             font=("Arial", 10, "bold"),
         )
  
