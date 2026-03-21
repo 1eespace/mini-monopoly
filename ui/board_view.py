@@ -1,5 +1,5 @@
 import tkinter as tk
-from ui.board_renderer import build_tiles
+from logic.board_renderer import build_tiles
 from ui.style_sheet import (
     BOARD_BG, TILE_FILL, TILE_OUTLINE, TEXT_BLACK, PRICE_COLOUR, PLAYER_COLOUR
 )

@@ -74,7 +74,7 @@ class GameUIControls(tk.Frame):
             self, 
             text="Start Game",
             width=18, 
-            height=3, 
+            height=2, 
             command=self.start_game
             )
         self.btn_start.pack(pady=8)
@@ -83,7 +83,7 @@ class GameUIControls(tk.Frame):
             self, 
             text="Next Turn", 
             width=18, 
-            height=3, 
+            height=2, 
             state="disabled", 
             command=self.next_turn
             )
@@ -93,7 +93,7 @@ class GameUIControls(tk.Frame):
             self, 
             text="Reset Game", 
             width=18, 
-            height=3, 
+            height=2, 
             command=self.reset_game
             )
         self.btn_reset.pack(pady=8)
@@ -117,7 +117,7 @@ class GameUIControls(tk.Frame):
         tk.Label(
             self,
             text=quick_rules,
-            font=("Arial", 13),
+            font=("Arial", 12),
             justify="left",
             relief="groove",
             padx=8,

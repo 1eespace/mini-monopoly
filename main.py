@@ -6,7 +6,7 @@ def main():
     # Initialise the main window
     root = tk.Tk()
     root.title("Mini Monopoly")
-    root.geometry("1000x720")
+    root.geometry("1000x780")
     root.resizable(False, False)
 
     # BoardView (LEFT)
