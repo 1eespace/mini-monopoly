@@ -52,11 +52,12 @@ The simulation follows these specific rules:
 
 ```
 .
-├── logic/                  # Handles Board, Game logics, and Turn management
-│   ├── board_renderer.py
-│   └── dice_roll_handler.py
-|   └── turn_manager.py
-├── models/                 # Data classes
+├── logic/                    # Game logics
+│   ├── board_renderer.py     # Handles Board
+│   └── dice_roll_handler.py  # Dice roll handler
+|   └── property_resolver.py  # Property (tile) management
+|   └── turn_manager.py       # Turn management 
+├── models/                   # Data classes
 │   ├── player.py
 │   └── tile.py
 ├── ui/                     # Graphical interface (Tkinter)
