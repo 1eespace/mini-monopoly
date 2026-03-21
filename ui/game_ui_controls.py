@@ -70,14 +70,59 @@ class GameUIControls(tk.Frame):
         self.turn_label.pack(pady=5)
 
         # Control Buttons; Start Game, Next Turn, and Reset Game
-        self.btn_start = tk.Button(self, text="Start Game", width=18, height=3, command=self.start_game)
+        self.btn_start = tk.Button(
+            self, 
+            text="Start Game",
+            width=18, 
+            height=3, 
+            command=self.start_game
+            )
         self.btn_start.pack(pady=8)
 
-        self.btn_next = tk.Button(self, text="Next Turn", width=18, height=3, state="disabled", command=self.next_turn)
+        self.btn_next = tk.Button(
+            self, 
+            text="Next Turn", 
+            width=18, 
+            height=3, 
+            state="disabled", 
+            command=self.next_turn
+            )
         self.btn_next.pack(pady=8)
 
-        self.btn_reset = tk.Button(self, text="Reset Game", width=18, height=3, command=self.reset_game)
+        self.btn_reset = tk.Button(
+            self, 
+            text="Reset Game", 
+            width=18, 
+            height=3, 
+            command=self.reset_game
+            )
         self.btn_reset.pack(pady=8)
+
+        # Quick rules label below buttons
+        quick_rules = (
+            "── Board Layout ──\n"
+            "GO is fixed at bottom-left\n"
+            "Tiles run clockwise:\n"
+            "left => top => right => bottom\n\n"
+            "── Rules ──\n"
+            "Each player starts with $16\n"
+            "Land on unowned: must buy\n"
+            "Land on owned: pay rent\n"
+            "Full colour set: rent x2\n"
+            "Pass GO: +$1\n"
+            "Balance < $0: bankrupt\n"
+            "Most money wins"
+        )
+
+        tk.Label(
+            self,
+            text=quick_rules,
+            font=("Arial", 13),
+            justify="left",
+            relief="groove",
+            padx=8,
+            pady=8
+        ).pack(pady=10)
 
     # REFRESH/UPDATE
     # Sync the visual board with the current state of player

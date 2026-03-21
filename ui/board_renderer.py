@@ -46,7 +46,7 @@ def compute_tile_positions(tiles_data: list[dict], board_size: int = 680) -> dic
     """
     - tile_size: width/height of a single tile
     - opposite_edge: (board_size - tile_size)
-    - side_length: usable space on each side (excluding the two corner tiles)
+    - side_length: usable tile on each side (excluding the two corner tiles)
     """
     tile_size = board_size // (max_per_side + 1)            # 680 // (2 + 1) = 226
     opposite_edge = board_size - tile_size                  # 680 - 226 = 454
