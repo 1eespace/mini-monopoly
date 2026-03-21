@@ -76,3 +76,25 @@ The simulation follows these specific rules:
 - **Extensible Board:** The UI automatically calculates tile positions based on `board.json` using a clockwise layout.
 - **Visual Feedback:** Real-time visualisation of player movements and property ownership using Tkinter.
 - **Data Driven:** Easy to test different scenarios by switching JSON files for board layout and dice rolls.
+
+## Design Decisions
+
+- **Separation of Concerns:**  
+  The application separates responsibilities into distinct modules (`models`, `logic`, `ui`) to improve maintainability and readability.
+
+- **Component-Based Structure:**  
+  Although not strictly following MVC, the project adopts a modular structure where each component has a clear responsibility.
+
+- **Improving SRP (Single Responsibility Principle):**  
+  The `TurnManager` was refactored by extracting property-related logic into `PropertyResolver` to ensure each class has a single responsibility.
+
+- **UI and Logic Separation:**  
+  The UI layer (Tkinter) is kept separate from game logic, making it easier to modify or replace the interface.
+
+- **Renderer as a Bridge:**  
+  `board_renderer.py` acts as a bridge between the game state and UI representation.
+
+## Documentation
+
+- 📄 Technical Document: [https://docs.google.com/document/d/1Sn__EZArDq-ODkPtseiEaymb0Rrj_evzybb5n9Rn8es/edit?usp=sharing]
+- 👤 User Document: [https://docs.google.com/document/d/1MV0aiT7RoVih3mTHoNw_LiWF_fgQmWOsfoGAlPBuvTU/edit?usp=sharing]
