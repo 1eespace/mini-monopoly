@@ -35,7 +35,7 @@ class PropertyResolver:
         # Monopoly Detection: If the owner has all properties of the same colour
         current_player = player.name
 
-        print("---- RENT DEBUG ----")
+        print("---- MONOPOLY DETECTION ----")
         print(
             f"{current_player} landed on {tile.name} | owner={tile.owner.name if tile.owner else None} "
             f"| colour={tile.colour} "

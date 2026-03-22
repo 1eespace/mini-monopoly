@@ -130,7 +130,7 @@ def build_tiles(json_file: str = "board.json", board_size: int = 680) -> list[Ti
     # Colour Hex (tile_colour.py)
     colour_map = colour_mapping(board_data) 
 
-    # DEBUG
+    # DEBUG: verify board data and position mapping
     print(f"board_data count: {len(board_data)}")
     print(f"positions count: {len(positions)}")
     for i, pos in positions.items():
