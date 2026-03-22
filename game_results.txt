@@ -1,0 +1,13 @@
+--- rolls_1.json ---
+Peter: $40 (Massizim)
+Billy: $14 (GO)
+Charlotte: -$1 (Gami Chicken)
+Sweedal: $1 (Gami Chicken)
+Winner: Peter
+
+--- rolls_2.json ---
+Charlotte: $31 (GO)
+Billy: $20 (Fast Kebabs)
+Sweedal: -$2 (Massizim)
+Peter: $5 (Lanzhou Beef Noodle)
+Winner: Charlotte

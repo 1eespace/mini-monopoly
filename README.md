@@ -48,6 +48,16 @@ The simulation follows these specific rules:
 - **Winning Condition:** Once the game ends, the player with the most money remaining is the winner
 - **Simplification:** No chance cards, jail, or stations are included
 
+## Game Results
+
+### rolls_1.json
+
+Winner: Peter
+
+### rolls_2.json
+
+Winner: Charlotte
+
 ## Project Structure
 
 ```
@@ -56,7 +66,7 @@ The simulation follows these specific rules:
 │   ├── board_renderer.py     # Handles Board
 │   └── dice_roll_handler.py  # Dice roll handler
 |   └── property_resolver.py  # Property (tile) management
-|   └── turn_manager.py       # Turn management 
+|   └── turn_manager.py       # Turn management
 ├── models/                   # Data classes
 │   ├── player.py
 │   └── tile.py
