@@ -32,6 +32,17 @@ class PropertyResolver:
         # Pay rent to another player
         rent = tile.price
 
+        # Monopoly Detection: If the owner has all properties of the same colour
+        current_player = player.name
+
+        print("---- RENT DEBUG ----")
+        print(
+            f"{current_player} landed on {tile.name} | owner={tile.owner.name if tile.owner else None} "
+            f"| colour={tile.colour} "
+            f"| monopoly={self.owner_has_full_colour(tile.owner, tile.colour) if tile.colour else False}"
+        )
+        print("-----------------------------------------------------------------------------")
+
         # Double rent if owner has full colour (x 2)
         if tile.colour is not None and self.owner_has_full_colour(tile.owner, tile.colour):
             rent *= 2
@@ -43,7 +54,7 @@ class PropertyResolver:
             return f"paid ${rent} rent to {tile.owner.name} and went bankrupt"
 
         return f"paid ${rent} rent to {tile.owner.name}"
-
+    
     # Get all property tiles of the same colour
     def owner_has_full_colour(self, owner: Player, colour: str) -> bool:
         same_colour_tiles = [

@@ -150,7 +150,8 @@ def build_tiles(json_file: str = "board.json", board_size: int = 680) -> list[Ti
             x1=x1, y1=y1, x2=x2, y2=y2,
             name=tile_data.get("name", ""),
             price=tile_data.get("price"),
-            colour_hex=colour_map.get(colour_name) if colour_name else None,
+            colour=colour_name,         # Game Logic
+            colour_hex=colour_map.get(colour_name) if colour_name else None,   # Game UI
             tile_type=tile_data.get("type", "")
         ))
 
