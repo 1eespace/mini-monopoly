@@ -101,17 +101,17 @@ class GameUIControls(tk.Frame):
         # Quick rules label below buttons
         quick_rules = (
             "── Board Layout ──\n"
-            "GO is fixed at bottom-left\n"
+            "GO is fixed at the bottom-left\n"
             "Tiles run clockwise:\n"
-            "left => top => right => bottom\n\n"
+            "left → top → right → bottom\n\n"
             "── Rules ──\n"
             "Each player starts with $16\n"
-            "Land on unowned: must buy\n"
-            "Land on owned: pay rent\n"
-            "Full colour set: rent x2\n"
+            "Land on unowned property: must buy\n"
+            "Land on owned property: pay rent\n"
+            "Full colour set: rent ×2\n"
             "Pass GO: +$1\n"
-            "Balance < $0: bankrupt\n"
-            "Most money wins"
+            "Bankrupt: if balance < $0\n"
+            "Winner: Highest balance"
         )
 
         tk.Label(
