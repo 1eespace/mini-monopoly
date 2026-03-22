@@ -6,7 +6,7 @@ from models.player import Player
 from logic.dice_roll_handler import DiceRollHandler
 from logic.turn_manager import TurnManager
 from ui.board_view import BoardView
-from ui.style_sheet import TEXT_BLACK, TEXT_RED, TEXT_PURPLE
+from ui.style_sheet import TEXT_RED, TEXT_PURPLE
 
 """
     Handles the side control panel of the game:
@@ -209,7 +209,7 @@ class GameUIControls(tk.Frame):
             self.turn_label.config(text="Current Turn: -")
             return
 
-        self.status_label.config(text=status_text, fg=TEXT_BLACK)
+        self.status_label.config(text=status_text)
 
     # Clear the game state and restores to the initial UI
     def reset_game(self) -> None:
