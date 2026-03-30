@@ -103,8 +103,3 @@ Winner: Charlotte
 
 - **Renderer as a Bridge:**  
   `board_renderer.py` acts as a bridge between the game state and UI representation.
-
-## Documentation
-
-- 📄 Technical Document: [https://docs.google.com/document/d/1Sn__EZArDq-ODkPtseiEaymb0Rrj_evzybb5n9Rn8es/edit?usp=sharing]
-- 👤 User Document: [https://docs.google.com/document/d/1MV0aiT7RoVih3mTHoNw_LiWF_fgQmWOsfoGAlPBuvTU/edit?usp=sharing]
